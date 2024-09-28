@@ -1,2 +1,3 @@
-# nx-cap-gen
-nx-cap-gen
+# cap-gen
+
+cap-gen
