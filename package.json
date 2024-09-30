@@ -3,6 +3,7 @@
   "version": "0.0.0-e2e",
   "description": "cap-gen",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,9 +38,11 @@
   },
   "nx": {},
   "dependencies": {
-    "@nx/devkit": "19.8.2"
+    "@nx/devkit": "19.8.2",
+    "create-nx-workspace": "19.8.2"
   },
   "workspaces": [
-    "tools/*"
+    "tools/*",
+    "packages/*"
   ]
 }

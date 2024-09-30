@@ -3,6 +3,9 @@
   "defaultBase": "main",
   "nxCloudId": "66f84187bed9676dbf073758",
   "targetDefaults": {
+    "nx-release-publish": {
+      "dependsOn": ["build"]
+    },
     "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -31,9 +34,5 @@
       }
     }
   },
-  "release": {
-    "version": {
-      "preVersionCommand": "npx nx run-many -t build"
-    }
-  }
+  "release": {}
 }
