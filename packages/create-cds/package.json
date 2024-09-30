@@ -10,5 +10,10 @@
   "typings": "./src/index.d.ts",
   "directories": {
     "bin": "./bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theplenkov-npm/nx-cap-gen.git",
+    "directory": "packages/create-cds"
   }
 }

@@ -8,5 +8,10 @@
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
-  "generators": "./generators.json"
+  "generators": "./generators.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theplenkov-npm/nx-cap-gen.git",
+    "directory": "tools/nx-cap"
+  }
 }
