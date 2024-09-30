@@ -34,5 +34,24 @@
       }
     }
   },
-  "release": {}
+  "release": {
+    "versionPlans": false,
+    "projectsRelationship": "fixed",
+    "changelog": {
+      "projectChangelogs": {
+        "entryWhenNoChanges": false
+      }
+    },
+    "version": {
+      "conventionalCommits": true
+    },
+    "conventionalCommits": {
+      "types": {
+        "docs": false,
+        "chore": {
+          "changelog": false
+        }
+      }
+    }
+  }
 }
