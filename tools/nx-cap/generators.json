@@ -1,14 +1,14 @@
 {
   "generators": {
     "preset": {
-      "factory": "./generators/preset/generator",
-      "schema": "./generators/preset/schema.json",
+      "factory": "./src/generators/preset/generator",
+      "schema": "./src/generators/preset/schema.json",
       "description": "Bootstrap CAP project",
       "x-use-standalone-layout": true
     },
     "bootstrap": {
-      "factory": "./generators/bootstrap/generator",
-      "schema": "./generators/bootstrap/schema.json",
+      "factory": "./src/generators/bootstrap/generator",
+      "schema": "./src/generators/bootstrap/schema.json",
       "description": "Bootstrap CAP project",
       "x-use-standalone-layout": true
     }

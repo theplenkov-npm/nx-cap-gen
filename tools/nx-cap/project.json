@@ -1,7 +1,7 @@
 {
   "name": "nx-cap",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "nx-cap/src",
+  "sourceRoot": "{projectRoot}/src",
   "projectType": "library",
   "release": {
     "version": {
@@ -17,28 +17,28 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/nx-cap",
-        "main": "nx-cap/src/index.ts",
-        "tsConfig": "nx-cap/tsconfig.lib.json",
+        "outputPath": "dist/{projectRoot}",
+        "main": "{projectRoot}/src/index.ts",
+        "tsConfig": "{projectRoot}/tsconfig.lib.json",
         "assets": [
-          "nx-cap/*.md",
+          "{projectRoot}/*.md",
           {
             "input": "./nx-cap/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./nx-cap/src",
+            "input": "{projectRoot}/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./nx-cap",
+            "input": "{projectRoot}",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./nx-cap",
+            "input": "{projectRoot}",
             "glob": "executors.json",
             "output": "."
           }
@@ -57,7 +57,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "nx-cap/jest.config.ts"
+        "jestConfig": "{projectRoot}/jest.config.ts"
       }
     }
   }
