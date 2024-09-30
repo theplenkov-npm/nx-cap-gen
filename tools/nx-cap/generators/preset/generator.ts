@@ -5,9 +5,12 @@ import {
   Tree,
 } from '@nx/devkit';
 import * as path from 'path';
-import { CapGeneratorSchema } from './schema';
+import { PresetGeneratorSchema } from './schema';
 
-export async function capGenerator(tree: Tree, options: CapGeneratorSchema) {
+export async function presetGenerator(
+  tree: Tree,
+  options: PresetGeneratorSchema
+) {
   const projectRoot = `libs/${options.name}`;
   addProjectConfiguration(tree, options.name, {
     root: projectRoot,
@@ -19,4 +22,4 @@ export async function capGenerator(tree: Tree, options: CapGeneratorSchema) {
   await formatFiles(tree);
 }
 
-export default capGenerator;
+export default presetGenerator;

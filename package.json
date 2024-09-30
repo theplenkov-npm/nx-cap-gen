@@ -15,6 +15,7 @@
     "@nx/jest": "19.8.2",
     "@nx/js": "^19.8.2",
     "@nx/plugin": "^19.8.2",
+    "@sap/cds-dk": "^8.2.3",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
@@ -37,5 +38,9 @@
   "nx": {},
   "dependencies": {
     "@nx/devkit": "19.8.2"
-  }
+  },
+  "workspaces": [
+    "tools/*",
+    "projects/*"
+  ]
 }

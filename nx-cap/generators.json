@@ -1,9 +1,0 @@
-{
-  "generators": {
-    "cap": {
-      "factory": "./generators/cap/generator",
-      "schema": "./generators/cap/schema.json",
-      "description": "NX CAP project generator"
-    }
-  }
-}

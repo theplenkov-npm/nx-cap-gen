@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "Bootstrap",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "features": {
+      "type": "array",
+      "description": "CDS features",
+      "x-prompt": {
+        "message": "Which features would you like to add?",
+        "type": "list",
+        "items": [
+          {
+            "value": "approuter",
+            "label": "approuter\t\t\tdynamic routing using @sap/approuter"
+          },
+          {
+            "value": "attachments",
+            "label": "attachments\t\t\tSAP BTP Object Store Service"
+          },
+          {
+            "value": "audit-logging",
+            "label": "audit-logging\t\t\tSAP BTP Audit Logging Service"
+          },
+          {
+            "value": "cf-manifest",
+            "label": "cf-manifest\t\t\tCloud Foundry deployment using manifest files"
+          },
+          {
+            "value": "connectivity",
+            "label": "connectivity\t\t\tSAP BTP Connectivity Service"
+          },
+          {
+            "value": "containerize",
+            "label": "containerize\t\t\tcontainerization using ctz CLI"
+          },
+          {
+            "value": "data",
+            "label": "data\t\t\t\tadd CSV headers for modeled entities"
+          },
+          {
+            "value": "destination",
+            "label": "destination\t\t\tSAP BTP Destination Service"
+          },
+          {
+            "value": "enterprise-messaging",
+            "label": "enterprise-messaging\t\tmessaging via SAP Enterprise Messaging"
+          },
+          {
+            "value": "enterprise-messaging-shared",
+            "label": "enterprise-messaging-shared\tmessaging via shared SAP Enterprise Messaging"
+          },
+          {
+            "value": "extensibility",
+            "label": "extensibility\t\t\ttenant-specific model extensibility"
+          },
+          {
+            "value": "file-based-messaging",
+            "label": "file-based-messaging\t\tmessaging via file system"
+          },
+          {
+            "value": "hana",
+            "label": "hana\t\t\t\tdatabase support for SAP HANA"
+          },
+          {
+            "value": "helm",
+            "label": "helm\t\t\t\tKyma deployment using Helm charts"
+          },
+          {
+            "value": "helm-unified-runtime",
+            "label": "helm-unified-runtime\t\tKyma deployment using Unified Runtime Helm charts"
+          },
+          {
+            "value": "html5-repo",
+            "label": "html5-repo\t\t\tSAP BTP HTML5 Application Repository"
+          },
+          {
+            "value": "http",
+            "label": "http\t\t\t\tadd .http files for modeled services"
+          },
+          {
+            "value": "kafka",
+            "label": "kafka\t\t\t\tmessaging via Apache Kafka"
+          },
+          { "value": "lint", "label": "lint\t\t\t\tconfigure cds lint" },
+          {
+            "value": "local-messaging",
+            "label": "local-messaging\t\tmessaging via local event bus"
+          },
+          {
+            "value": "malware-scanner",
+            "label": "malware-scanner\t\tSAP Malware Scanning Service"
+          },
+          {
+            "value": "mta",
+            "label": "mta\t\t\t\tCloud Foundry deployment using mta.yaml"
+          },
+          {
+            "value": "mtx",
+            "label": "mtx\t\t\t\tmultitenancy + toggles + extensibility"
+          },
+          {
+            "value": "multitenancy",
+            "label": "multitenancy\t\t\tschema-based multitenancy support"
+          },
+          {
+            "value": "notifications",
+            "label": "notifications\t\t\tSAP BTP Notification Service"
+          },
+          {
+            "value": "pipeline",
+            "label": "pipeline\t\t\tCI/CD pipeline integration"
+          },
+          { "value": "portal", "label": "portal\t\t\tSAP BTP Portal Service" },
+          {
+            "value": "postgres",
+            "label": "postgres\t\t\tdatabase support for PostgreSQL"
+          },
+          {
+            "value": "redis",
+            "label": "redis\t\t\t\tSAP BTP Redis, Hyperscaler Option"
+          },
+          {
+            "value": "redis-messaging",
+            "label": "redis-messaging\t\tmessaging via Redis"
+          },
+          {
+            "value": "sample",
+            "label": "sample\t\t\tadd sample files including Fiori UI"
+          },
+          {
+            "value": "sqlite",
+            "label": "sqlite\t\t\tdatabase support for SQLite"
+          },
+          {
+            "value": "tiny-sample",
+            "label": "tiny-sample\t\t\tadd minimal sample files"
+          },
+          {
+            "value": "toggles",
+            "label": "toggles\t\t\tallow dynamically toggled features"
+          },
+          {
+            "value": "typescript",
+            "label": "typescript\t\t\tadd minimum configuration for a bare TypeScript project"
+          },
+          {
+            "value": "typer",
+            "label": "typer\t\t\t\ttype generation for CDS models"
+          },
+          {
+            "value": "workzone-standard",
+            "label": "workzone-standard\t\tSAP BTP Work Zone, Standard Edition"
+          },
+          { "value": "xsuaa", "label": "xsuaa\t\t\t\tauthentication via XSUAA" }
+        ],
+        "multiselect": true
+      }
+    }
+  },
+  "required": ["name"]
+}

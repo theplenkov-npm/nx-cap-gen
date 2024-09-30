@@ -1,0 +1,16 @@
+{
+  "generators": {
+    "preset": {
+      "factory": "./generators/preset/generator",
+      "schema": "./generators/preset/schema.json",
+      "description": "Bootstrap CAP project",
+      "x-use-standalone-layout": true
+    },
+    "bootstrap": {
+      "factory": "./generators/bootstrap/generator",
+      "schema": "./generators/bootstrap/schema.json",
+      "description": "Bootstrap CAP project",
+      "x-use-standalone-layout": true
+    }
+  }
+}

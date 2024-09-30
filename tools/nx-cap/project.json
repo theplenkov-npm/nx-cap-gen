@@ -1,6 +1,6 @@
 {
   "name": "nx-cap",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "nx-cap/src",
   "projectType": "library",
   "release": {
