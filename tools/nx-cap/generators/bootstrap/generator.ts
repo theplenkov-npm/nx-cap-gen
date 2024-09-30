@@ -7,6 +7,7 @@ import {
   TargetConfiguration,
   Tree,
   readProjectConfiguration,
+  updateProjectConfiguration,
 } from '@nx/devkit';
 
 import * as path from 'path';
@@ -27,11 +28,7 @@ export async function presetGenerator(
     console.log('Adding features to project configuration...');
   }
 
-  const commands: string[] = [
-    `npm init -y`,
-    // `npm install -D @sap/cds-dk`,
-    // `npm install @sap/cds`,
-  ];
+  const commands = [`npm init -y`];
 
   if (options.features) {
     commands.push(`npx cds add ${options.features.join(',')}`);
@@ -43,7 +40,7 @@ export async function presetGenerator(
       parallel: false,
       color: true,
       __unparsed__: [],
-      cwd: path.join(tree.root, projectRoot),
+      cwd: projectRoot,
     },
     executor: 'nx:run-commands',
   };
@@ -59,9 +56,12 @@ export async function presetGenerator(
 
   addProjectConfiguration(tree, projectName, project);
   await formatFiles(tree);
-  return runTasksInSerial(createNewProject, bootstrapProject);
-  async function createNewProject() {}
+
+  // follow-up tasks
+  return runTasksInSerial(bootstrapProject);
+
   async function bootstrapProject() {
+    console.log('Bootstrapping project...');
     const projectRoot = path.join('projects', projectName);
     const project = readProjectConfiguration(tree, projectName);
 
@@ -88,6 +88,14 @@ export async function presetGenerator(
     for await (const task of tasks) {
     }
   }
+
+  // async function removeBootstrapTarget(): Promise<void> {
+  //   console.log('Removing bootstrap target from project configuration...');
+  //   const project = readProjectConfiguration(tree, projectName);
+  //   delete project?.targets?.['bootstrap'];
+  //   updateProjectConfiguration(tree, projectName, project);
+  //   await formatFiles(tree);
+  // }
 }
 
 export default presetGenerator;

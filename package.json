@@ -40,7 +40,6 @@
     "@nx/devkit": "19.8.2"
   },
   "workspaces": [
-    "tools/*",
-    "projects/*"
+    "tools/*"
   ]
 }
