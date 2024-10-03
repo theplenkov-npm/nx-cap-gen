@@ -1,15 +1,11 @@
-const nx = require('@nx/eslint-plugin');
+import typescript from '@nx/eslint-plugin/typescript.js';
+import nx from '@nx/eslint-plugin/nx.js';
+import jsonc from "jsonc-eslint-parser"
 
-module.exports = [
-  {
-    files: ['**/*.json'],
-    // Override or add rules here
-    rules: {},
-    languageOptions: { parser: require('jsonc-eslint-parser') },
-  },
-  ...nx.configs['flat/base'],
-  ...nx.configs['flat/typescript'],
-  ...nx.configs['flat/javascript'],
+export default [
+  { plugins: nx },
+  ...typescript.configs.javascript,
+  ...typescript.configs.typescript,
   {
     ignores: ['**/dist'],
   },
@@ -36,4 +32,13 @@ module.exports = [
     // Override or add rules here
     rules: {},
   },
+  {
+    "files": ["**/*.json"],
+    languageOptions: {
+      "parser": jsonc
+    },
+    "rules": {
+      "@nx/dependency-checks": "error"
+    }
+  }
 ];

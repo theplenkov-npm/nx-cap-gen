@@ -5,7 +5,7 @@
     "create-nx-workspace": "19.8.2",
     "tslib": "^2.3.0"
   },
-  "type": "commonjs",
+  "type": "module",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
   "directories": {

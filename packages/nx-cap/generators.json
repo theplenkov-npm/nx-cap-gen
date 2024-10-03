@@ -2,8 +2,8 @@
   "generators": {
     "preset": {
       "factory": "./src/generators/preset/generator",
-      "schema": "./src/generators/preset/schema.json",
-      "description": "Bootstrap CAP project",
+      "schema": "./src/generators/bootstrap/schema.json",
+      "description": "Bootstrap CAP workspace",
       "x-use-standalone-layout": true
     },
     "bootstrap": {

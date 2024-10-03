@@ -8,12 +8,8 @@ async function main() {
 
   console.log(`Creating the workspace: ${name}`);
 
-  // This assumes "nx-cap" and "create-cds" are at the same version
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const presetVersion = require('../package.json').version;
-
   // TODO: update below to customize the workspace
-  const { directory } = await createWorkspace(`nx-cap@${presetVersion}`, {
+  const { directory } = await createWorkspace(`nx-cap`, {
     name,
     nxCloud: 'skip',
     packageManager: 'npm',

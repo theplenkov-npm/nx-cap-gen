@@ -41,6 +41,11 @@
             "input": "{projectRoot}",
             "glob": "executors.json",
             "output": "."
+          },
+          {
+            "input": "{projectRoot}",
+            "glob": "**/schema.json",
+            "output": "."
           }
         ]
       }

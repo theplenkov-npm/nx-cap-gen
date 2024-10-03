@@ -15,7 +15,7 @@ import { BoostrapGeneratorSchema } from './schema';
 
 import { RunCommandsOptions } from 'nx/src/executors/run-commands/run-commands.impl';
 
-export async function presetGenerator(
+export async function bootstrapGenerator(
   tree: Tree,
   options: BoostrapGeneratorSchema
 ) {
@@ -98,4 +98,4 @@ export async function presetGenerator(
   // }
 }
 
-export default presetGenerator;
+export default bootstrapGenerator;

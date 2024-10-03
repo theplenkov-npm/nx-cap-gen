@@ -18,8 +18,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "create-cds": [
+        "packages/create-cds/src/index.ts"
+      ],
       "nx-cap": [
-        "tools/nx-cap/src/index.ts"
+        "packages/nx-cap/src/index.ts"
       ]
     }
   },
