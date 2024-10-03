@@ -1,13 +1,15 @@
-import typescript from '@nx/eslint-plugin/typescript.js';
-import nx from '@nx/eslint-plugin/nx.js';
-import jsonc from "jsonc-eslint-parser"
+const nx = require('@nx/eslint-plugin');
+const jsonc = require('jsonc-eslint-parser');
+const eslint = require('@eslint/js');
+const prettier = require('eslint-config-prettier');
 
-export default [
-  { plugins: nx },
-  ...typescript.configs.javascript,
-  ...typescript.configs.typescript,
+module.exports = [
+  eslint.configs.recommended,
+  prettier,
+  ...nx.configs['flat/base'],
+  ...merge({ files: ['**/*.ts', '**/*.{m,c}ts'] }, nx.configs['flat/typescript']),
   {
-    ignores: ['**/dist'],
+    ignores: ['.nx/', '**/dist'],
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
@@ -33,12 +35,16 @@ export default [
     rules: {},
   },
   {
-    "files": ["**/*.json"],
+    files: ['**/*.json'],
     languageOptions: {
-      "parser": jsonc
+      parser: jsonc,
     },
-    "rules": {
-      "@nx/dependency-checks": "error"
-    }
+    rules: {
+      '@nx/dependency-checks': 'error',
+    },
   }
 ];
+
+function merge(object, configs) {
+  return configs.map(config => Object.assign({}, object, config))
+}
