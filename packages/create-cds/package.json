@@ -1,6 +1,6 @@
 {
   "name": "create-cds",
-  "version": "0.0.7-9",
+  "version": "0.1.0",
   "dependencies": {
     "create-nx-workspace": "19.8.2",
     "tslib": "^2.3.0",
