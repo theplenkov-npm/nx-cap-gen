@@ -1,15 +1,22 @@
 {
   "name": "e2e",
-  "version": "1.0.0",
+  "private": "true",
   "main": "index.js",
   "dependencies": {
     "create-cds": "file:../dist/packages/create-cds",
     "nx-cap": "file:../dist/packages/nx-cap"
   },
   "scripts": {
-    "test": "npx create-cds test"
+    "test": "rm -rf sample && npx create-cds sample --name tiny-sample --features=tiny-sample"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "nx": {
+    "implicitDependencies": [
+      "create-cds",
+      "nx-cap"
+    ]
+  },
+  "version": "0.0.7-9"
 }
