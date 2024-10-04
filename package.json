@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "nx run-many -t build --exclude=root"    
+    "build": "nx run-many -t build --exclude=root",
+    "e2e": "nx test e2e"
   },
   "author": "",
   "license": "ISC",
@@ -39,8 +40,11 @@
   },
   "nx": {},
   "dependencies": {
-    "@nx/devkit": "19.8.2",
-    "create-nx-workspace": "19.8.2"
+    "@nx/eslint-plugin": "19.8.2",
+    "jsonc-eslint-parser": "2.4.0",
+    "@nx/jest": "19.8.2",
+    "@nx/js": "^19.8.2",
+    "nx": "19.8.2"
   },
   "workspaces": [
     "tools/*",

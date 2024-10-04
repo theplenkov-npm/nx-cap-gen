@@ -1,4 +1,3 @@
 import { BoostrapGeneratorSchema } from "../bootstrap/schema";
 
-export interface PresetGeneratorSchema extends BoostrapGeneratorSchema {
-}
+export type PresetGeneratorSchema = BoostrapGeneratorSchema

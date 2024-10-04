@@ -6,8 +6,7 @@ import {
   runTasksInSerial,
   TargetConfiguration,
   Tree,
-  readProjectConfiguration,
-  updateProjectConfiguration,
+  ExecutorContext
 } from '@nx/devkit';
 
 import * as path from 'path';
@@ -20,13 +19,9 @@ export async function bootstrapGenerator(
   options: BoostrapGeneratorSchema
 ) {
   const projectName = options.name;
-  const projectRoot = path.join('projects', projectName);
+  const projectRoot = options.path || path.join('projects', projectName);
 
   console.log('Generating project configuration...');
-
-  if (options.features) {
-    console.log('Adding features to project configuration...');
-  }
 
   const commands = [`npm init -y`];
 
@@ -45,12 +40,21 @@ export async function bootstrapGenerator(
     executor: 'nx:run-commands',
   };
 
+  const cleanup: TargetConfiguration<RunCommandsOptions> = {
+    options: {
+      command: [`npx nx g nx-cap:cleanup --name ${projectName}`],
+      __unparsed__: []
+    },
+    executor: 'nx:run-commands',
+  };
+
   const project: ProjectConfiguration = {
     name: projectName,
     root: projectRoot,
     projectType: 'application',
     targets: {
       bootstrap,
+      cleanup
     },
   };
 
@@ -58,44 +62,52 @@ export async function bootstrapGenerator(
   await formatFiles(tree);
 
   // follow-up tasks
-  return runTasksInSerial(bootstrapProject);
+  return runTasksInSerial(bootstrapProject, cleanupProject);
 
   async function bootstrapProject() {
+
     console.log('Bootstrapping project...');
-    const projectRoot = path.join('projects', projectName);
-    const project = readProjectConfiguration(tree, projectName);
+
+    return runProjectTask('bootstrap');
+  }
+
+  async function cleanupProject() {
+
+    console.log('Cleaning up bootstrapped project...');
+
+    return runProjectTask('cleanup');
+  }
+
+  async function runProjectTask(target: string) {
+
+    const context = {
+      cwd: path.join(tree.root, projectRoot),
+      isVerbose: process.argv.includes('--verbose'),
+      root: tree.root,
+      projectsConfigurations: {
+        version: 0,
+        projects: {
+          [projectName]: project,
+        },
+      },
+    } satisfies ExecutorContext;
 
     const tasks = await runExecutor(
       {
-        target: 'bootstrap',
+        target,
         project: projectName,
-      },
-      {},
-      {
-        cwd: path.join(tree.root, projectRoot),
-        isVerbose: process.argv.includes('--verbose'),
-        root: tree.root,
-        projectsConfigurations: {
-          version: 0,
-          projects: {
-            [projectName]: project,
-          },
-        },
-      }
+      }, {},
+      context,
     );
 
     //all tasks must be finished
-    for await (const task of tasks) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for await (const _task of tasks) {
+      //we need to make sure no more pending commands
     }
   }
 
-  // async function removeBootstrapTarget(): Promise<void> {
-  //   console.log('Removing bootstrap target from project configuration...');
-  //   const project = readProjectConfiguration(tree, projectName);
-  //   delete project?.targets?.['bootstrap'];
-  //   updateProjectConfiguration(tree, projectName, project);
-  //   await formatFiles(tree);
-  // }
 }
 
+export * from './schema';
 export default bootstrapGenerator;

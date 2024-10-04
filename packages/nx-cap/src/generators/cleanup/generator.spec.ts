@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
 
 import { bootstrapGenerator } from './generator';
-import { BoostrapGeneratorSchema } from './schema';
+import { CleanupGeneratorSchema } from './schema';
 
 describe('preset generator', () => {
   let tree: Tree;
-  const options: BoostrapGeneratorSchema = { name: 'test' };
+  const options: CleanupGeneratorSchema = { name: 'test' };
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();

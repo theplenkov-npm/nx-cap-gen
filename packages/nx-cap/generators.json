@@ -11,6 +11,12 @@
       "schema": "./src/generators/bootstrap/schema.json",
       "description": "Bootstrap CAP project",
       "x-use-standalone-layout": true
+    },
+    "cleanup": {
+      "factory": "./src/generators/cleanup/generator",
+      "schema": "./src/generators/cleanup/schema.json",
+      "description": "Cleanup a bootstrapped CAP project",
+      "x-use-standalone-layout": true
     }
   }
 }

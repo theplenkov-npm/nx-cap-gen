@@ -10,7 +10,7 @@ export async function presetGenerator(
   tree: Tree,
   options: PresetGeneratorSchema
 ) {
-
+  options.preset = true;
   return runTasksInSerial(await bootstrapGenerator(tree, options));
 }
 

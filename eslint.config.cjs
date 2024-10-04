@@ -9,7 +9,7 @@ module.exports = [
   ...nx.configs['flat/base'],
   ...merge({ files: ['**/*.ts', '**/*.{m,c}ts'] }, nx.configs['flat/typescript']),
   {
-    ignores: ['.nx/', '**/dist'],
+    ignores: ['.nx/', '**/dist', "**/tmp"],
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
@@ -40,7 +40,11 @@ module.exports = [
       parser: jsonc,
     },
     rules: {
-      '@nx/dependency-checks': 'error',
+      '@nx/dependency-checks': ['error', {
+        "ignoredDependencies": ["jsonc-eslint-parser"],
+        // "ignoredDependencies": ["lodash"], // these libs will be omitted from checks
+        "ignoredFiles": ["eslint.config.cjs"], // list of files that should be skipped for check        
+      }]
     },
   }
 ];

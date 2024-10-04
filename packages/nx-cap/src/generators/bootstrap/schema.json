@@ -6,12 +6,16 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
+      "description": "Project name",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": "What is the project name?"
+    },
+    "path": {
+      "type": "string",
+      "description": "Project path"
     },
     "features": {
       "type": "array",
@@ -92,7 +96,10 @@
             "value": "kafka",
             "label": "kafka\t\t\t\tmessaging via Apache Kafka"
           },
-          { "value": "lint", "label": "lint\t\t\t\tconfigure cds lint" },
+          {
+            "value": "lint",
+            "label": "lint\t\t\t\tconfigure cds lint"
+          },
           {
             "value": "local-messaging",
             "label": "local-messaging\t\tmessaging via local event bus"
@@ -121,7 +128,10 @@
             "value": "pipeline",
             "label": "pipeline\t\t\tCI/CD pipeline integration"
           },
-          { "value": "portal", "label": "portal\t\t\tSAP BTP Portal Service" },
+          {
+            "value": "portal",
+            "label": "portal\t\t\tSAP BTP Portal Service"
+          },
           {
             "value": "postgres",
             "label": "postgres\t\t\tdatabase support for PostgreSQL"
@@ -162,11 +172,16 @@
             "value": "workzone-standard",
             "label": "workzone-standard\t\tSAP BTP Work Zone, Standard Edition"
           },
-          { "value": "xsuaa", "label": "xsuaa\t\t\t\tauthentication via XSUAA" }
+          {
+            "value": "xsuaa",
+            "label": "xsuaa\t\t\t\tauthentication via XSUAA"
+          }
         ],
         "multiselect": true
       }
     }
   },
-  "required": ["name"]
+  "required": [
+    "name"
+  ]
 }

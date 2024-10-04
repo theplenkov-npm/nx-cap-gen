@@ -1,6 +1,6 @@
 export default {
   displayName: 'nx-cap',
-  preset: '../../jest.preset.js',
+  preset: '../../jest.preset.cjs',
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
