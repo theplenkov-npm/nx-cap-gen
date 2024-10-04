@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "build": "nx run-many -t build --exclude=root",
+    "lint": "nx run-many -t lint --exclude=root --fix",
     "e2e": "nx test e2e"
   },
   "author": "",
