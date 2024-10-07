@@ -1,11 +1,19 @@
-# nx-cap
+# CAP nx plugin
 
-This library was generated with [Nx](https://nx.dev).
+## Generating a CAP workpsace using nx preset
 
-## Building
+```
+npx create-nx-workspace --preset=nx-cap
+```
 
-Run `nx build nx-cap` to build the library.
+or use am install package
 
-## Running unit tests
+```
+npx create-cds
+```
 
-Run `nx test nx-cap` to execute the unit tests via [Jest](https://jestjs.io).
+## Bootstrapping a new CAP project
+
+```
+npx nx g nx-cap:bootstrap
+```
