@@ -23,7 +23,7 @@ export async function bootstrapGenerator(
 
   console.log('Generating project configuration...');
 
-  const commands = [`npm init -y`];
+  const commands = [`npm init -y --silent`];
 
   if (options.features) {
     commands.push(`npx cds add ${options.features.join(',')}`);
