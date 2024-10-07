@@ -1,11 +1,11 @@
 {
   "name": "create-cds",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "create-nx-workspace": "19.8.2",
     "tslib": "^2.3.0",
     "yargs": "^17.7.2",
-    "nx-cap": "0.1.0"
+    "nx-cap": "0.1.1"
   },
   "type": "module",
   "main": "./src/index.js",
