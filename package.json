@@ -41,7 +41,6 @@
   },
   "nx": {},
   "dependencies": {
-    "@nx/eslint-plugin": "19.8.2",
     "jsonc-eslint-parser": "2.4.0",
     "@nx/jest": "19.8.2",
     "@nx/js": "^19.8.2",
